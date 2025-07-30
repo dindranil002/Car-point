@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="form.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+	<input type="hidden" id="status" value="<%= request.getAttribute("status")%>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form method="post" action="register" onsubmit="return validateform()">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" name="name" id="name" placeholder="Enter your name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" name="email" id="email" placeholder="Enter your email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="number" name="contact" id="contact" placeholder="Enter your number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" name="pass" id="pass" placeholder="Enter your password" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" name="re_pass" id="re_pass" placeholder="Confirm your password" required>
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register" onclick="display()">
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link   rel ="stylesheet" href="alert/dist/sweetalert.css">
+  
+  <script type="text/javascript">
+	  function validateform() {
+		  var x=document.getElementById("contact").value;
+		  var y=document.getElementById("pass").value;
+		  var z=document.getElementById("re_pass").value;
+		  if(x.length<10)
+		  {
+			  alert("Enter Correct Phone Number");
+			  return false;
+		  }
+		  else{
+			  true;
+		  }
+		  if(y!=z)
+		  {
+			  alert("Password Missmatched");
+			  return false;
+		  }
+		  else{
+			  alert("Registration Successful! Welcome to our website");
+			  true;
+		  }
+		}
+  </script>
+
+</body>
+</html>
